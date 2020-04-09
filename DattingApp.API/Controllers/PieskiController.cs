@@ -27,8 +27,8 @@ namespace DattingApp.API.Controllers
             return Ok(response);
         }
 
-        // GET: api/Pieski/5
-        [HttpGet("{id}", Name = "Get")]
+        // GET: api/Pieski/1
+        [HttpGet("{id}", Name = "Get")]     
         public async Task<IActionResult> Get(int id)
         {
             var result = await _context.Values.FirstOrDefaultAsync(v => v.Id == id);
