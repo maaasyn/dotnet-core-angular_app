@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DattingApp.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace DattingApp.API.Controllers
             _context = context;
         }
         // GET: api/Pieski
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
