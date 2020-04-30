@@ -10,6 +10,7 @@ using DattingApp.API.Data;
 using DattingApp.API.Dtos;
 using DattingApp.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -33,7 +34,7 @@ namespace DattingApp.API.Controllers
         {
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            if (await _authRepo.UserExists(userForRegisterDto.Username))
+            if (await _authRepo.UserExists(userForRegisterDto.Username.ToLower()))
             {
                 return BadRequest("Username already exists");
             }
@@ -45,6 +46,7 @@ namespace DattingApp.API.Controllers
         }
 
         [HttpPost("login")]
+        
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
             var userFromRepo = await _authRepo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);

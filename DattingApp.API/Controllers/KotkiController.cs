@@ -12,7 +12,6 @@ namespace DattingApp.API.Controllers
     [ApiController]
     public class KotkiController : ControllerBase
     {
-        [Authorize]
         [HttpGet]
         public List<string> Get()
         {
