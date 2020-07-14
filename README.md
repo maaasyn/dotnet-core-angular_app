@@ -1,3 +1,3 @@
-# dating-app-asp-ang
+# dotnet core with angular
 
-# Yet just learning :)
+A basic dotnet core app with sqlite, angular and dotnet core. App contains user authentication through JWT.
